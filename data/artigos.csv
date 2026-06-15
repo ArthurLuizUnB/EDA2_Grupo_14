@@ -1,0 +1,31 @@
+id,titulo,area,ano,resumo
+T01,Attention Is All You Need,Aprendizado de Máquina,2017,Propõe a arquitetura Transformer baseada inteiramente em mecanismos de atenção dispensando recorrência e convoluções para tarefas de sequência.
+T02,MapReduce: Simplified Data Processing on Large Clusters,Sistemas Distribuídos,2004,Modelo de programação para processamento e geração de grandes conjuntos de dados com implementação paralela em clusters.
+T03,A Survey on Transfer Learning,Aprendizado de Máquina,2010,Revisão abrangente sobre técnicas de transferência de conhecimento entre domínios e tarefas em aprendizado de máquina.
+T04,The PageRank Citation Ranking: Bringing Order to the Web,Recuperação de Informação,1999,Algoritmo que mede a importância relativa de páginas web com base na estrutura de links da internet.
+T05,Deep Residual Learning for Image Recognition,Visão Computacional,2016,Introduz conexões residuais para treinar redes neurais profundas superando degradação de desempenho em redes muito profundas.
+T06,BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding,Processamento de Linguagem Natural,2019,Modelo de linguagem pré-treinado bidirecional baseado em Transformers que obtém resultados estado-da-arte em diversas tarefas de PLN.
+T07,Collaborative Filtering for Implicit Feedback Datasets,Sistemas de Recomendação,2008,Algoritmo de filtragem colaborativa adaptado para dados de feedback implícito como histórico de navegação e compras.
+T08,A* Search Algorithm and Its Applications,Algoritmos e Estruturas de Dados,1968,Algoritmo de busca heurística para encontrar caminho de custo mínimo em grafos ponderados com admissibilidade garantida.
+T09,Continuous Integration and Deployment: Best Practices,Engenharia de Software,2010,Práticas e ferramentas para integração contínua visando reduzir conflitos de integração e acelerar ciclos de entrega.
+T10,Design Patterns: Elements of Reusable Object-Oriented Software,Engenharia de Software,1994,Cataloga 23 padrões de projeto recorrentes para solução de problemas comuns no desenvolvimento orientado a objetos.
+T11,Graph Neural Networks: A Review of Methods and Applications,Grafos e Redes,2019,Revisão sistemática de métodos de redes neurais aplicadas a dados estruturados em grafos para diversas tarefas.
+T12,The Byzantine Generals Problem,Sistemas Distribuídos,1982,Formaliza o problema de consenso em sistemas distribuídos com falhas arbitrárias e propõe soluções tolerantes a falhas.
+T13,Dropout: A Simple Way to Prevent Neural Networks from Overfitting,Aprendizado de Máquina,2014,Técnica de regularização que descarta aleatoriamente unidades durante o treinamento para reduzir overfitting em redes neurais.
+T14,Agile Software Development: Principles Patterns and Practices,Engenharia de Software,2002,Apresenta princípios e práticas ágeis de desenvolvimento de software incluindo XP e Scrum com exemplos práticos.
+T15,An Introduction to Kolmogorov Complexity and Its Applications,Teoria da Computação,2008,Fundamentos da complexidade de Kolmogorov e sua relação com compressão aleatoriedade e inferência indutiva.
+T16,Node2Vec: Scalable Feature Learning for Networks,Grafos e Redes,2016,Framework para aprendizado de representações de nós em grafos usando random walks tendenciosos e word2vec.
+T17,Microservices: A Definition of This New Architectural Term,Engenharia de Software,2014,Define e caracteriza o estilo arquitetural de microsserviços comparando com arquiteturas monolíticas tradicionais.
+T18,Generative Adversarial Networks,Aprendizado de Máquina,2014,Introduz o framework GAN para geração de dados sintéticos através de jogo adversarial entre gerador e discriminador.
+T19,Fuzzy Logic and Its Applications,Inteligência Artificial,1965,Introduz a lógica fuzzy para lidar com incerteza e imprecisão em sistemas de tomada de decisão e controle.
+T20,Ethereum: A Next-Generation Smart Contract and Decentralized Application Platform,Sistemas Distribuídos,2014,Plataforma blockchain com linguagem Turing-completa para criação de contratos inteligentes e aplicações descentralizadas.
+T21,Kubernetes: Up and Running,Engenharia de Software,2017,Guia prático sobre orquestração de contêineres com Kubernetes para implantação e gerenciamento de aplicações em escala.
+T22,Efficient Estimation of Word Representations in Vector Space,Processamento de Linguagem Natural,2013,Propõe Word2Vec modelos neurais eficientes para aprender representações vetoriais densas de palavras a partir de grandes corpora.
+T23,Software Testing: A Craftsman Approach,Engenharia de Software,2008,Abordagem sistemática para testes de software cobrindo técnicas de caixa-preta caixa-branca integração e sistema.
+T24,Privacy-Preserving Machine Learning: Threats and Solutions,Segurança Computacional,2019,Revisão de ameaças à privacidade em modelos de aprendizado de máquina e técnicas de mitigação como aprendizado federado.
+T25,Blockchain Technology: Principles and Applications,Sistemas Distribuídos,2016,Revisão dos fundamentos da tecnologia blockchain seus mecanismos de consenso e aplicações além de criptomoedas.
+T26,Support Vector Machines: Theory and Applications,Aprendizado de Máquina,1998,Fundamentos teóricos das SVMs incluindo kernel trick margens e aplicações em classificação e regressão.
+T27,Clean Code: A Handbook of Agile Software Craftsmanship,Engenharia de Software,2008,Princípios e práticas para escrita de código limpo legível e de fácil manutenção com exemplos em Java.
+T28,Graph-Based Recommendation Systems,Sistemas de Recomendação,2018,Survey sobre uso de grafos em sistemas de recomendação incluindo GNNs filtragem colaborativa baseada em grafos e KGs.
+T29,The CAP Theorem and Its Implications for Distributed Systems,Sistemas Distribuídos,2012,Análise formal do teorema CAP e suas implicações práticas para o projeto de sistemas distribuídos modernos.
+T30,Convolutional Neural Networks for Visual Recognition,Visão Computacional,2012,Apresenta AlexNet arquitetura CNN profunda que venceu ImageNet 2012 impulsionando o deep learning moderno.
