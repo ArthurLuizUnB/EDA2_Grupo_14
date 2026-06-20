@@ -13,6 +13,7 @@ Pipeline:
 from src.utils import carregar_artigos, carregar_usuarios, carregar_interacoes, carregar_citacoes
 from src.GrafoBipartido import GrafoBipartido
 from src.projecao import ProjecaoArtigo
+from src.recomendacao import recomendar_vizinhos_diretos, recomendar_rwr
 
 
 def pipeline(interacoes, limiar=0.1):
@@ -69,8 +70,9 @@ def menu(grafo, projecao_filtrada, usuarios: dict, artigos: dict):
             titulo = artigos.get(aid, {}).get('titulo', aid)
             print(f"  [{aid}] {titulo}")
 
-        # Passo 6 virá aqui — recomendação com base nos artigos lidos
-        print("\n(Recomendações serão geradas no Passo 6)")
+        # Passo 6: gera e exibe as recomendações com base nos artigos lidos
+        recomendar_vizinhos_diretos(projecao_filtrada, artigos_lidos, artigos)
+        recomendar_rwr(projecao_filtrada, artigos_lidos, artigos)
 
     elif opcao == "2":
         # set comprehension: extrai as áreas únicas de todos os artigos (sem repetição)
@@ -102,8 +104,9 @@ def menu(grafo, projecao_filtrada, usuarios: dict, artigos: dict):
         for aid, dados in artigos_da_area:
             print(f"  [{aid}] {dados['titulo']} ({dados['ano']})")
 
-        # Passo 6 virá aqui — recomendação para usuário novo
-        print("\n(Recomendações serão geradas no Passo 6)")
+        # Passo 6: gera e exibe as recomendações com base na área escolhida
+        recomendar_vizinhos_diretos(projecao_filtrada, {aid for aid, _ in artigos_da_area}, artigos)
+        recomendar_rwr(projecao_filtrada, {aid for aid, _ in artigos_da_area}, artigos)
 
     else:
         print("⚠ Opção inválida.")
