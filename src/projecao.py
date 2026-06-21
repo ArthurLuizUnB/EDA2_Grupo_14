@@ -3,7 +3,7 @@ projecao.py — Projeção artigo-artigo com similaridade de Jaccard + filtragem
 Estrutura de dados: Hash Map de Hash Maps (dict[str, dict[str, float]]) com pesos float.
 """
 
-from GrafoBipartido import GrafoBipartido
+from src.GrafoBipartido import GrafoBipartido
 from itertools import combinations
 
 
