@@ -10,10 +10,16 @@ class HeapMinimoTopN:
     """
 
     def __init__(self, capacidade):
+        """
+        Inicializa o heap com a capacidade máxima informada.
+        """
         self._capacidade = capacidade
         self._dados = []
 
     def _prioridade_menor(self, item_a, item_b):
+        """
+        Verifica se item_a tem prioridade menor que item_b.
+        """
         if item_a[0] != item_b[0]:
             return item_a[0] < item_b[0]
         if item_a[1] != item_b[1]:
@@ -21,6 +27,9 @@ class HeapMinimoTopN:
         return item_a[2] > item_b[2]
 
     def _prioridade_maior(self, item_a, item_b):
+        """
+        Verifica se item_a tem prioridade maior que item_b.
+        """
         if item_a[0] != item_b[0]:
             return item_a[0] > item_b[0]
         if item_a[1] != item_b[1]:
@@ -28,6 +37,9 @@ class HeapMinimoTopN:
         return item_a[2] < item_b[2]
 
     def _subir(self, indice):
+        """
+        Move um item para cima até restaurar a propriedade do heap.
+        """
         while indice > 0:
             pai = (indice - 1) // 2
             if not self._prioridade_menor(self._dados[indice], self._dados[pai]):
@@ -36,6 +48,9 @@ class HeapMinimoTopN:
             indice = pai
 
     def _descer(self, indice):
+        """
+        Move um item para baixo até restaurar a propriedade do heap.
+        """
         tamanho = len(self._dados)
         while True:
             esquerda = 2 * indice + 1
@@ -54,6 +69,9 @@ class HeapMinimoTopN:
             indice = menor
 
     def inserir(self, item):
+        """
+        Insere um item mantendo apenas os melhores elementos do heap.
+        """
         if self._capacidade <= 0:
             return
 
@@ -67,11 +85,17 @@ class HeapMinimoTopN:
             self._descer(0)
 
     def em_ordem_decrescente(self):
+        """
+        Retorna os itens do heap ordenados da maior para a menor prioridade.
+        """
         itens = self._dados[:]
         self._ordenar_por_selecao(itens)
         return itens
 
     def _ordenar_por_selecao(self, itens):
+        """
+        Ordena uma lista de itens por seleção, em ordem decrescente.
+        """
         for i in range(len(itens)):
             maior = i
             for j in range(i + 1, len(itens)):
@@ -87,15 +111,24 @@ class RecomendadorVizinhos:
     """
 
     def __init__(self, grafo_bipartido, projecao_artigos, catalogo_artigos):
+        """
+        Armazena as estruturas usadas para gerar recomendações.
+        """
         self._grafo_bipartido = grafo_bipartido
         self._projecao = projecao_artigos
         self._catalogo = catalogo_artigos
 
     def recomendar_para_usuario(self, usuario_id, quantidade=5):
+        """
+        Gera recomendações usando o histórico de artigos de um usuário.
+        """
         artigos_base = self._grafo_bipartido.obter_artigos_do_usuario(usuario_id)
         return self.recomendar_por_artigos(artigos_base, quantidade)
 
     def recomendar_por_artigos(self, artigos_base, quantidade=5):
+        """
+        Calcula recomendações a partir dos vizinhos dos artigos informados.
+        """
         lidos = set(artigos_base)
         candidatos = {}
 
@@ -146,6 +179,9 @@ class RecomendadorVizinhos:
         return recomendacoes
 
     def _ordenar_origens(self, origens):
+        """
+        Ordena as origens de uma recomendação pelo peso da conexão.
+        """
         ordenadas = origens[:]
         for i in range(len(ordenadas)):
             maior = i
