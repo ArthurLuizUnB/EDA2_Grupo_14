@@ -7,13 +7,13 @@ Pipeline:
     3. Construir projeção artigo-artigo (Jaccard)
     4. Filtrar arestas
     5. Menu interativo (usuário existente ou novo)
-    6. Gerar e exibir recomendações (Vizinhos Diretos + RWR)
+    6. Gerar e exibir recomendações por vizinhos mais próximos
 """
 
 from src.utils import carregar_artigos, carregar_usuarios, carregar_interacoes, carregar_citacoes
 from src.GrafoBipartido import GrafoBipartido
 from src.projecao import ProjecaoArtigo
-from src.recomendacao import recomendar_vizinhos_diretos, recomendar_rwr
+from src.recomendacao import RecomendadorVizinhos, imprimir_recomendacoes
 
 
 def pipeline(interacoes, limiar=0.1):
@@ -70,9 +70,13 @@ def menu(grafo, projecao_filtrada, usuarios: dict, artigos: dict):
             titulo = artigos.get(aid, {}).get('titulo', aid)
             print(f"  [{aid}] {titulo}")
 
-        # Passo 6: gera e exibe as recomendações com base nos artigos lidos
-        recomendar_vizinhos_diretos(projecao_filtrada, artigos_lidos, artigos)
-        recomendar_rwr(projecao_filtrada, artigos_lidos, artigos)
+        # Passo 6: gera e exibe as recomendações com base nos artigos lidos pelo usuário
+        # RecomendadorVizinhos recebe o grafo, a projeção e o catálogo de artigos
+        recomendador = RecomendadorVizinhos(grafo, projecao_filtrada, artigos)
+        # recomendar_para_usuario() usa o histórico do usuário no grafo para buscar vizinhos
+        recomendacoes = recomendador.recomendar_para_usuario(usuario_id)
+        # imprimir_recomendacoes() exibe a lista formatada no terminal
+        imprimir_recomendacoes(recomendacoes)
 
     elif opcao == "2":
         # set comprehension: extrai as áreas únicas de todos os artigos (sem repetição)
@@ -105,8 +109,14 @@ def menu(grafo, projecao_filtrada, usuarios: dict, artigos: dict):
             print(f"  [{aid}] {dados['titulo']} ({dados['ano']})")
 
         # Passo 6: gera e exibe as recomendações com base na área escolhida
-        recomendar_vizinhos_diretos(projecao_filtrada, {aid for aid, _ in artigos_da_area}, artigos)
-        recomendar_rwr(projecao_filtrada, {aid for aid, _ in artigos_da_area}, artigos)
+        # Extrai apenas os IDs dos artigos da área (descarta os metadados com _)
+        artigos_base = {aid for aid, _ in artigos_da_area}
+        # RecomendadorVizinhos recebe o grafo, a projeção e o catálogo de artigos
+        recomendador = RecomendadorVizinhos(grafo, projecao_filtrada, artigos)
+        # recomendar_por_artigos() recebe um conjunto de artigos e busca vizinhos na projeção
+        recomendacoes = recomendador.recomendar_por_artigos(artigos_base)
+        # imprimir_recomendacoes() exibe a lista formatada no terminal
+        imprimir_recomendacoes(recomendacoes)
 
     else:
         print("⚠ Opção inválida.")
