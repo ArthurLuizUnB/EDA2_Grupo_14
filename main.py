@@ -10,7 +10,7 @@ Pipeline:
     6. Gerar e exibir recomendações por vizinhos mais próximos
 """
 
-from src.utils import carregar_artigos, carregar_usuarios, carregar_interacoes, carregar_citacoes
+from src.utils import carregar_artigos, carregar_usuarios, carregar_interacoes
 from src.GrafoBipartido import GrafoBipartido
 from src.projecao import ProjecaoArtigo
 from src.recomendacao import RecomendadorVizinhos, imprimir_recomendacoes
@@ -128,7 +128,6 @@ if __name__ == "__main__":
     artigos    = carregar_artigos("data/artigos.csv")
     usuarios   = carregar_usuarios("data/usuarios.csv")
     interacoes = carregar_interacoes("data/interacoes.csv")
-    citacoes   = carregar_citacoes("data/citacoes.csv")
 
     # Passos 2, 3 e 4: grafo → projeção → filtragem
     grafo, projecao_filtrada = pipeline(interacoes)

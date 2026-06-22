@@ -57,18 +57,3 @@ def carregar_interacoes(caminho: str) -> list:
         for row in reader:
             interacoes.append((row['usuario_id'], row['artigo_id']))
     return interacoes
-
-
-def carregar_citacoes(caminho: str) -> list:
-    """
-    Carrega as citações entre artigos do CSV.
-
-    Retorna:
-        lista de tuplas [(artigo_origem, artigo_destino), ...]
-    """
-    citacoes = []
-    with open(caminho, newline='', encoding='utf-8') as f:
-        reader = csv.DictReader(f)
-        for row in reader:
-            citacoes.append((row['artigo_origem'], row['artigo_destino']))
-    return citacoes
