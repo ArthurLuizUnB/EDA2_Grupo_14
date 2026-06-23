@@ -14,6 +14,10 @@ recomendacao-artigos/
 │   ├── artigos.csv       # 30 artigos de CC/Engenharia de Software
 │   ├── usuarios.csv      # 15 usuários com área de interesse
 │   └── interacoes.csv    # Histórico: quem salvou qual artigo
+│├── documentacao/
+│   ├── analise_resultados.md  
+│   ├── projecao.md
+│   └── Slide de Apresentacao Recomendacao de Artigos.pdf
 │  
 ├── src/
 │   ├── utils.py          # Leitura dos CSVs → dicionários (Hash Map)
